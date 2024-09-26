@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- Bean definitions go here-->
+
+    <bean id="classRosterDao>" class="com.ajc.classroster.dao.ClassRosterDaoFileImpl" />
+    
+    <bean id="classRosterDaoStub>" class="com.ajc.classroster.dao.ClassRosterDaoStubImpl" />
+
+    <bean id="auditDaoStub" class="com.ajc.classroster.dao.ClassRosterAuditDaoStubImpl" />   
+
+    <bean id="serviceLayer" class="com.ajc.classroster.service.ClassRosterServiceLayerImpl">
+        <constructor-arg ref="classRosterDaoStub" />
+        <constructor-arg ref="auditDaoStub" />
+    </bean>
+    
+    <!-- 
+        * We only define beans for the DAOs and the service layer because these are only the components used for this set of beans
+        * We define beans for the stubbed-out versions of the Class Roster DAO and the Audit DAO
+        * We pass the stubbed-out versions of the DAOs to the service layer constructor
+    -->
+    
+    
+    
+</beans>

@@ -1,0 +1,11 @@
+1. Declare variables
+    - String variable for height; takes user input
+    - String variable for width; takes user input
+    - See more
+2. Prompt user for window height and width
+3. Run calculations
+    - Calculate area
+    - Calculate perimeter
+4. Calculate the total cost of the window using the defined prices for the glass and trim
+
+

@@ -1,0 +1,4 @@
+com\ajc\classroster\service\ClassRosterServiceLayerImplTest.class
+com\ajc\classroster\dao\ClassRosterDaoStubImpl.class
+com\ajc\classroster\dao\ClassRosterDaoFileImplTest.class
+com\ajc\classroster\service\ClassRosterAuditDaoStubImpl.class

@@ -1,0 +1,37 @@
+-------------------------------------------------------------------------------
+Test set: com.ajc.classroster.dao.ClassRosterDaoFileImplTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.178 s <<< FAILURE! -- in com.ajc.classroster.dao.ClassRosterDaoFileImplTest
+com.ajc.classroster.dao.ClassRosterDaoFileImplTest.testRemoveStudent -- Time elapsed: 0.029 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The removed student should be Ada. ==> expected: <Student{firstName=Charles, lastName=Babbage, studentId=0001, cohort=.NET-May-1845}> but was: <Student{firstName=Ada, lastName=Lovelace, studentId=0001, cohort=Java-May-1845}>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1156)
+	at com.ajc.classroster.dao.ClassRosterDaoFileImplTest.testRemoveStudent(ClassRosterDaoFileImplTest.java:116)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.ajc.classroster.dao.ClassRosterDaoFileImplTest.testAddGetAllStudents -- Time elapsed: 0.012 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The list of students should have 2 students. ==> expected: <2> but was: <1>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:563)
+	at com.ajc.classroster.dao.ClassRosterDaoFileImplTest.testAddGetAllStudents(ClassRosterDaoFileImplTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.ajc.classroster.dao.ClassRosterDaoFileImplTest.testSomeMethod -- Time elapsed: 0.005 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at com.ajc.classroster.dao.ClassRosterDaoFileImplTest.testSomeMethod(ClassRosterDaoFileImplTest.java:156)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+

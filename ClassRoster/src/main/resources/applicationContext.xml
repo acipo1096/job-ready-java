@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- Bean definitions go here-->
+    
+    <!-- Tells the Spring container to instantiate an instance of our UserIoConsoleImpl class
+    and make it available in the application context under the alias userIO. 
+
+    We only have id and class attributes for this bean because this class does not depend on any
+    other components. In other words, we don't need to tell Spring to pass any parameters into the constructor
+    of the UserIOConsoleImpl class  -->
+    <bean id="userIO" class="com.ajc.classroster.ui.UserIOConsoleImpl" />
+    
+    <!--  Tells the Spring container to instantiate an instance of our ClassRosterView class and
+    to make it available in the application context under the alias view.
+    
+    We also have a nested constuctor-arg, which tells the Spring container to pass a parameter into the constructor.
+    The ref attribute to tell Spring we want to pass the userIO bean as a parameter of the ClassRosterView constructor-->
+    <bean id="view" class="com.ajc.classroster.ui.ClassRosterView">
+        <constructor-arg ref="userIO" />
+    </bean>
+    
+    <!--  Tells the Spring container to instantiate an instance of our ClassRosterDaoFileImpl class
+    and to make it available in the applicatino context under the alias classRosterDao -->    
+    <bean id="classRosterDao" class="com.ajc.classroster.dao.ClassRosterDaoFileImpl" />
+
+    <!--  The auditDao entry tells the Spring container to instantiate an instance of our ClassRosterAuditDaoFileImpl class
+    and to make it avaialble in the app context under the alias auditDao-->
+    <bean id="auditDao" class="com.ajc.classroster.dao.ClassRosterAuditDaoFileImpl" />    
+    
+    <!--  Tells the Spring container to instantiate an instance of our ClassRosterServiceLayerImpl class and
+    to make it available in the application context under the alias serviceLayer.
+    
+    We also have two nested constuctor-args, which tells the Spring container to pass a parameter into the constructor.
+    The first ref attribute to tell Spring we want to pass the classRosterDao bean as a parameter of the ClassRosterServiceLayerImpl constructor.
+    The second ref attribute to tell Spring we want to pass the auditDao bean as a parameter of the ClassRosterServiceLayerImpl constructor. 
+    -->
+    <bean id="serviceLayer" class="com.ajc.classroster.service.ClassRosterServiceLayerImpl">
+        <constructor-arg ref="classRosterDao" />
+        <constructor-arg ref="auditDao" />
+    </bean>
+    
+    <!--  Tells the Spring container to instantiate an instance of our ClassRosterController class and
+    to make it available in the application context under the alias controller
+    
+    We also have two nested constuctor-args, which tells the Spring container to pass a parameter into the constructor.
+    The first ref attribute to tell Spring we want to pass the serviceLayer bean as a parameter of the ClassRosterController constructor.
+    The second ref attribute to tell Spring we want to pass the view bean as a parameter of the ClassRosterController constructor. 
+    -->
+    <bean id="controller" class="com.ajc.classroster.controller.ClassRosterController">
+        <constructor-arg ref="serviceLayer" />
+        <constructor-arg ref="view" />
+    </bean>
+    
+    
+    
+    
+    
+</beans>
